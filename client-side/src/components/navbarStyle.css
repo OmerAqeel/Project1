@@ -2,8 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center; /* Adding align-items to vertically center items */
-    color: #fff;
-    background-color: #3cb371;
+    color: #ff7200;
+    background-color: #ff7200;
   }
   
   .navbar ul {
@@ -22,6 +22,7 @@
     color: white;
     text-decoration: none;
     text-align: center;
+    float:right
   }
   
   .loginBtn {
