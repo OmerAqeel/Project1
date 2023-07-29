@@ -1,0 +1,43 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Adding align-items to vertically center items */
+    color: #ff7200;
+    background-color: #ff7200;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Changing display to flex to make the list items horizontal */
+  }
+  
+  li {
+    margin-right: 10px; /* Adjusting margin-right for spacing between nav-links */
+  }
+  
+  .nav-links {
+    padding: 14px 16px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    float:right
+  }
+  
+  .loginBtn {
+    display: block;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .loginBtn button{
+    border-radius:8px ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    cursor:pointer;
+  }
+  
