@@ -1,3 +1,7 @@
+.logo{
+    height: 1em;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -41,3 +45,4 @@
     cursor:pointer;
   }
   
+  .loginBtn :hover
