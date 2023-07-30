@@ -1,48 +1,108 @@
-.logo{
-    height: 1em;
+.logo {
+  height: 1em;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center; /* Adding align-items to vertically center items */
-    color: #ff7200;
-    background-color: #ff7200;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex; /* Changing display to flex to make the list items horizontal */
-  }
-  
-  li {
-    margin-right: 10px; /* Adjusting margin-right for spacing between nav-links */
-  }
-  
-  .nav-links {
-    padding: 14px 16px;
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    float:right
-  }
-  
-  .loginBtn {
-    display: block;
-    padding: 14px 16px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ff7200;
+  background-color: #ff7200;
+}
 
-  .loginBtn button{
-    border-radius:8px ;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-right: 10px;
-    padding-left: 10px;
-    cursor:pointer;
-  }
-  
-  .loginBtn :hover
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  padding: inherit;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  float: right;
+  margin-right: 2em;
+}
+
+li {
+  margin-right: 50px; /* Adjusting margin-right for spacing between nav-links */
+}
+
+.nav-links {
+  color: white;
+  text-decoration: none;
+}
+
+.loginBtn {
+  display: block;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.loginBtn button {
+  border-radius: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+/* Add styles for the custom dropdown */
+.custom-dropdown {
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  z-index: 1;
+}
+
+/* Add this rule to show the dropdown when dropdownVisible is true */
+.custom-dropdown.show .dropdown-content {
+  display: block;
+}
+
+
+.dropdown-content {
+  left: -150px; /* Adjust this value as needed to position the dropdown */
+}
+
+
+
+
+/* Style the button with the user icon */
+loginBtn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: white; /* Set the color of the icon to white */
+}
+
+.loginBtn i {
+  margin-right: 8px;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+.dropdown-content a i {
+  margin-right: 8px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
