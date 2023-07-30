@@ -3,8 +3,6 @@ import { Link, NavLink, Bars } from "react-router-dom";
 import "./homepagestyle.css";
 
 const HomePage = () => {
-
-  
   return (
     <div>
       <div className="image-container">
@@ -25,6 +23,10 @@ const HomePage = () => {
       </div>
     </div>
   );
+
+
+
+  
 };
 
 export default HomePage;
