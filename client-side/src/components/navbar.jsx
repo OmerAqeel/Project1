@@ -15,7 +15,6 @@ const Navbar = () => {
       <li className="logo">
         <Link to="/">
           <img src={logo} alt="bug" height={100} className="logo" />
-          {/* Use the imported image */}
         </Link>
       </li>
       <ul>
