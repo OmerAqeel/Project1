@@ -26,11 +26,20 @@
     justify-content: center;
     align-items: center;
   }
-  
+  .box:hover {
+    background-color:#ff2f00;
+    transition: background-color 0.5s ease;
+  }
+  .box-link {
+    text-decoration: none;
+  }
   .explore-more {
     font-size: 20px;
     font-weight: bold;
+    transform: translateX(-11%);
     color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap
   }
   .text-on-image1 {
     position: absolute;
@@ -55,4 +64,108 @@
     height: 40px; /* Increase the height to make space for the expanded text */
     justify-content: center;
     align-items: center;
+  }
+
+  /* TESTIMONIAL KA PART HAI BHIDUU */
+  .testimonial-text{
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: left;
+    transform: translateY(-5%);
+    padding-left:50px;
+    font-weight: bold;
+    color: #ff7200;
+  }
+  /* IDHAR BHAI DALAY GA 2ND SECTION KA CSS */
+  .carousel-container {
+    position: relative;
+    object-fit: cover;
+    overflow: scroll;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .box2 {
+    flex: 0 0 calc(100% / 3); 
+    min-width: 100px; 
+    height: 300px;
+    background-color: #ff7200;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-size: 20px;
+    font-weight: bold;
+    text-align: justify;
+    color: #ffffff;
+    word-wrap: break-word;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .testimonial {
+    flex: 0 0 calc(100% / 3);
+    min-width: 200px;
+    height: 400px;
+    background-color: #ff7200;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #ff7200;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .profile-pic img {
+    width: 200%;
+    height: 200%;
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .quote {
+    padding: 20px;
+  }
+  
+  .quote-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .quote-author {
+    font-size: 16px;
+    font-style: italic;
+  }
+  
+  /* top-categories-text */
+  .top-cat-text {
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: left;
+    font-weight: bold;
+    color: #ff7200;
+    padding-left: 20px;
+    transform: translateX(-256%) translateY(400px);
+    white-space: nowrap
   }
