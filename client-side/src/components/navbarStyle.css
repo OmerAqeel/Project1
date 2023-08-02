@@ -20,7 +20,7 @@
   text-decoration: none;
   text-align: center;
   float: right;
-  margin-right: 2em;
+  margin-right: 3em;
 }
 
 li {
@@ -34,7 +34,7 @@ li {
 
 .loginBtn {
   display: block;
-  padding: 14px 16px;
+  padding: 14px 25px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -87,7 +87,7 @@ loginBtn {
 }
 
 .loginBtn i {
-  margin-right: 8px;
+  margin-right: -2px;
 }
 
 /* Style the links inside the dropdown */
