@@ -24,15 +24,7 @@
 
   .signInBtn {
     font-size: 20px;
-    font-weight: bold;
     transform: translateX(-11%);
-    color: #ffffff;
-    text-decoration: none;
-    white-space: nowrap
-  }
-
-  .signInBtn {
-    font-size: 20px;
     font-weight: bold;
     color: #ffffff;
     background-color: #ff7200;
@@ -40,10 +32,46 @@
     padding: 12px 24px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
+    margin-left:1em; 
   }
   
   .signInBtn:hover {
     background-color: #ff8c4e; 
   }
+  
+  #username{
+    width:40%;
+  }
+
+  #password{
+    width:40%;
+  }
+
+  .input-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .input-container label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .input-container input[type="text"],
+  .input-container input[type="password"] {
+    padding-left: 30px; /* Adjust the padding to create space for the icon */
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Add margin to the icons to create space */
+  .input-container i {
+    margin-left: 8em;
+  }
+  
   
