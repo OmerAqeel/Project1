@@ -1,0 +1,26 @@
+.maindiv1 {
+    width: 100%;
+    display: flex;
+  }
+  
+  .subdiv1,
+  .subdiv2 {
+    padding: 5px;
+    width: 50%;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .maindiv1 {
+      flex-direction: column; /* Change flex direction for mobile devices */
+    }
+  
+    .subdiv1,
+    .subdiv2 {
+      padding: 0; /* Remove padding for mobile devices */
+      width: 100%; /* Set width to 100% for mobile devices */
+    }
+  }
+
+
+  
+  
