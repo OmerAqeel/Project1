@@ -33,6 +33,9 @@ const LoginPage = () => {
             <button type="submit" className="signInBtn">Sign In</button>
           </div>
         </form>
+        <div className="forgot-password">
+          <Link to="/forgot-password">Forgot Password?</Link>
+        </div>
       </div>
     </div>
   );

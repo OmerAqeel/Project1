@@ -74,4 +74,17 @@
     margin-left: 8em;
   }
   
+
+  .forgot-password {
+    margin-top: 20px;
+  }
+  
+  .forgot-password a {
+    color: #ff7200;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
   
