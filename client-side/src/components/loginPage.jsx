@@ -10,7 +10,7 @@ const LoginPage = () => {
         <br />
         <br />
         <h2>Welcome to Our Website!</h2>
-        <p>kcmdkcmdk</p>
+        <p>Content will go here.</p>
       </div>
       <div className="sign-in-pane">
         <h2>Sign In</h2>
@@ -24,7 +24,7 @@ const LoginPage = () => {
           <br />
           <div className="input-container"> 
             <label htmlFor="password">
-              <i className="fas fa-lock"> </i>
+              <i className="fas fa-lock"></i>
             </label>
             <input type="password" id="password" name="password" required />
           </div>
