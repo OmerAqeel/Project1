@@ -1,57 +1,54 @@
 import React from "react";
-import { Link, NavLink, Bars } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./homepagestyle.css";
-const HomePage = () => {
 
-  
+const HomePage = () => {
   return (
     <div>
       <div className="image-container">
         <img src="/images/First Image1.jpg" alt="This Image" className="image" />
         <div className="box">
-        <Link to="/categories" className="nav-links"></Link>
-        <Link to="/categories" className="explore-more">Explore More</Link>
-          
+          <Link to="/categories" className="nav-links"></Link>
+          <Link to="/categories" className="explore-more">Explore More</Link>
           <div className="text-on-image1">
             <div className="image1-top-text">
               Explore<br />
-              Pakistans finest<br />
+              Pakistan's finest<br />
               book collection<br />
             </div>
           </div>
         </div>
       </div>
-      <div>
-      <div>
+
       <div className="testimonial-text">
-      <h4>Our Testimonial</h4>
-      {/* IDHAR APUN DALAY GA BOXES */}
+        <h4>Our Testimonial</h4>
+        <div className="carousel-container">
+          <div className="carousel">
 
-      <div class="carousel-container">
-    <div class="carousel">
-    <div class="carousel">
-  <div class="testimonial">
-    <div class="profile-pic">
-  <img src="/images/TestImage.jpg" alt="Profile Picture 1"></img>
-</div>
 
-    <div class="quote">
-      <p class="quote-text">"The library is my go-to sanctuary for escaping into new worlds and expanding my knowledge. It's a place of wonder and inspiration!"</p>
-      <p class="quote-author">- Salman Khan</p>
-    </div>
-  </div>
+            <div className="testimonial">
+              <div className="profile-pic">
+                <img src="/images/TestImage.jpg" alt="Profile Picture 1" />
+              </div>
+              <div className="quote">
+                <p className="quote-text">"The library is my go-to sanctuary for escaping into new worlds and expanding my knowledge. It's a place of wonder and inspiration!"</p>
+                <p className="quote-author">- Salman Khan</p>
+              </div>
+            </div>
 
-  <div class="testimonial">
-  <div class="profile-pic">
-  <img src="/images/TestImage.jpg" alt="Profile Picture 1"></img>
-</div>
-    <div class="quote">
-      <p class="quote-text">"Thanks to the library's vast collection, I've discovered hidden gems and classic reads that have enriched my life beyond measure."</p>
-      <p class="quote-author">- Mike Oxmaul</p>
-    </div>
-  </div>
 
-  <div class="testimonial">
+            <div className="testimonial">
+              <div className="profile-pic">
+                <img src="/images/TestImage.jpg" alt="Profile Picture 2" />
+              </div>
+              <div className="quote">
+                <p className="quote-text">"Thanks to the library's vast collection, I've discovered hidden gems and classic reads that have enriched my life beyond measure."</p>
+                <p className="quote-author">- Mike Oxmaul</p>
+              </div>
+            </div>
+
+
+            <div class="testimonial">
   <div class="profile-pic">
   <img src="/images/TestImage.jpg" alt="Profile Picture 1"></img>
 </div>
@@ -80,26 +77,31 @@ const HomePage = () => {
       <p class="quote-author">- Angelina Jolie</p>
     </div>
   </div>
-  </div>
-  
-  
-  {/* IDHAR APUN DALAY GA TOP CATEGORIES */}
-  <div>
-  <div className="top-cat-text">
-      <h4>Top Rated Categories</h4>
-     
-</div>
-</div>
-</div>
 
-    </div>
-  </div>
+          </div>
+        </div>
+      </div>
 
-    </div>
-  </div>
-  </div>
-      
-      
+      {/* Top Rated Categories Section */}
+      <div className="top-cat-text">
+        <h4>Top Rated Categories</h4>
+        <Link to="/categories" className="explore-more-category">Explore More</Link>
+        <div class="book-container">
+        <div class="rectangle-box">
+            <img class="book-image" src="/images/Book1.jpg" alt="Image 1" />
+            <div className="category-text">Drama</div>
+        </div>
+        <div class="rectangle-box">
+            <img class="book-image" src="/images/Book2.jpg" alt="Image 2" />
+            <div className="category-text">Reality</div>
+        </div>
+        <div class="rectangle-box">
+            <img class="book-image" src="/images/Book3.jpg" alt="Image 3" />
+            <div className="category-text">Kids</div>
+            </div>
+          </div>
+        </div>
+      </div>
   );
 };
 
