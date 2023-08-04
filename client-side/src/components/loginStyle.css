@@ -1,0 +1,49 @@
+.sign-in-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+    height: 76vh; /* Set height to 100vh to fill the viewport */
+  }
+  
+  .info-pane {
+    flex: 1;
+    background-color: #ff7200;
+    margin-left: -2em;
+    margin-top: -1.24em;
+    margin-bottom: -6.9em;
+    padding-top: 12%;
+  }
+  
+  .sign-in-pane {
+    flex: 1;
+    margin-left: 20px;
+    max-width: 50%;
+    padding-top: 12%;
+  }
+
+  .signInBtn {
+    font-size: 20px;
+    font-weight: bold;
+    transform: translateX(-11%);
+    color: #ffffff;
+    text-decoration: none;
+    white-space: nowrap
+  }
+
+  .signInBtn {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff7200;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+  }
+  
+  .signInBtn:hover {
+    background-color: #ff8c4e; 
+  }
+  
