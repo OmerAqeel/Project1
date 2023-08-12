@@ -30,10 +30,18 @@
   }
   
   .description {
-    position: absolute;
-    top: 10em;
+    
+    width: 25.5%;
+    margin: auto;
+    text-align: left;
+    padding: 10px;
+    
+    
+    /* position: absolute;
+    left: 5em; */
     
   }
+
 
   @media screen and (max-width: 600px) {
     .maindiv1 {
