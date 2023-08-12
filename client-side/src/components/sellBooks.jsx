@@ -98,7 +98,8 @@ const SellBooks = () => {
 
           <br />
           <br />
-          <label className="description" htmlFor="description">Description: </label>
+          <div className="description">
+            <label htmlFor="description">Description: </label> <br /> </div>
 
           <textarea
             id="description"
@@ -108,26 +109,27 @@ const SellBooks = () => {
             placeholder="Enter Description Here..."
             value={description}
             onChange={handleInputChange}
+            style={{}}
           ></textarea>
           <br />
           {formErrors.description && <span className="error">{formErrors.description}</span>}
 
           <br />
           <br />
-          <label htmlFor="book-image">Book Image: </label> <br/> <br/>
+          <label htmlFor="book-image">Book Image: </label> <br /> <br />
           <div>
             <input
               type="file"
               id="book-image"
               onChange={handleImageChange}
             />
-            <div style={{ border: "1px solid #ccc", padding: "10px", marginTop: "10px", maxWidth: "1000px", marginRight: "30em", marginLeft: "30em"}}>
+            <div style={{ border: "1px solid #ccc", padding: "10px", marginTop: "10px", maxWidth: "1000px", marginRight: "30em", marginLeft: "30em" }}>
               {imageFile && (
                 <img src={previewUrl} alt="Book Preview" style={{ maxWidth: "100%" }} />
               )}
             </div>
           </div>
-          
+
 
 
 
