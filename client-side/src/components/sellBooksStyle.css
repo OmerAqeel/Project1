@@ -3,12 +3,38 @@
     display: flex;
   }
   
-  .subdiv1,
-  .subdiv2 {
-    padding: 5px;
+  .subdiv1 {
+    padding-left: 35em;
     width: 50%;
   }
+  .subdiv2 {
+    padding-right: 35em;
+    width: 50%;
+  }
+
+  .button {
+    
+      font-size: 20px;
+      font-weight: bold;
+      transform: translateX(-11%);
+      color: #ffffff;
+      text-decoration: none;
+      white-space: nowrap;
+      background-color: #ff7200;
+      padding: 7px;
+      border-radius: 5px;
   
+  }
+  .error {
+    color: #ff7200;
+  }
+  
+  .description {
+    position: absolute;
+    top: 10em;
+    
+  }
+
   @media screen and (max-width: 600px) {
     .maindiv1 {
       flex-direction: column; /* Change flex direction for mobile devices */
@@ -20,6 +46,10 @@
       width: 100%; /* Set width to 100% for mobile devices */
     }
   }
+/* form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; } */
 
 
   
