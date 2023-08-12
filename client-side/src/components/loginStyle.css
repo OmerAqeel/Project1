@@ -8,12 +8,49 @@
   
   .info-pane {
     flex: 1;
-    background-color: #ff7200;
     margin-left: -2em;
     margin-top: -1.24em;
     margin-bottom: -6.9em;
     padding-top: 12%;
+  
+    /* Define the background animation */
+    background: linear-gradient(135deg, #ff7200, #ffd700);
+    background-size: 50% 10%; /* This is essential for the animation */
+    animation: gradientAnimation 2s linear infinite;
   }
+
+  .content{
+    color: #f5f5f5;
+  }
+  
+  @keyframes gradientAnimation {
+    @keyframes gradient-animation {
+      0%, 100% {
+        background-position: 0 0;
+      }
+      20% {
+        background-position: 20% 0;
+      }
+      40% {
+        background-position: 40% 0;
+      }
+      60% {
+        background-position: 60% 0;
+      }
+      80% {
+        background-position: 80% 0;
+      }
+    }
+  }
+  
+
+  .error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  
   
   .sign-in-pane {
     flex: 1;
@@ -24,15 +61,7 @@
 
   .signInBtn {
     font-size: 20px;
-    font-weight: bold;
     transform: translateX(-11%);
-    color: #ffffff;
-    text-decoration: none;
-    white-space: nowrap
-  }
-
-  .signInBtn {
-    font-size: 20px;
     font-weight: bold;
     color: #ffffff;
     background-color: #ff7200;
@@ -40,10 +69,116 @@
     padding: 12px 24px;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
+    margin-left:1em; 
   }
   
   .signInBtn:hover {
     background-color: #ff8c4e; 
+  }
+  
+  #username{
+    width:40%;
+  }
+
+  #password{
+    width:40%;
+  }
+
+  .input-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
+  
+  .input-container label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+  
+  .input-container input[type="text"],
+  .input-container input[type="password"] {
+    padding-left: 30px;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Add margin to the icons to create space */
+  .input-container i {
+    margin-left: 8em;
+  }
+  
+  /* Add styling for the error messages */
+  .input-container .error {
+    position: absolute;
+    top: 100%; /* Position below the input field */
+    left: 10px;
+    color: #ff0000;
+    font-size: 12px;
+  }
+  
+
+  .forgot-password {
+    margin-top: 20px;
+  }
+  
+  .forgot-password a {
+    color: #ff7200;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+.social-login {
+    margin-top: 20px;
+  }
+  
+  .social-login .googleBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4285f4; /* Google blue color */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10.9em;
+  }
+  
+  .social-login .googleBtn i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  
+  .social-login .googleBtn:hover {
+    background-color: #3b79e0; /* Slightly darker shade on hover */
+  }
+  
+  .or-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .or-divider .bar {
+    flex: 1;
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .or-divider span {
+    margin: 0 10px;
+    font-weight: bold;
+    color: #ccc;
   }
   
