@@ -43,6 +43,12 @@
     }
   }
   
+
+  .error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+  }
   
   
   
@@ -93,7 +99,7 @@
   
   .input-container input[type="text"],
   .input-container input[type="password"] {
-    padding-left: 30px; /* Adjust the padding to create space for the icon */
+    padding-left: 30px;
     width: 100%;
     height: 40px;
     border: 1px solid #ccc;
@@ -103,6 +109,15 @@
   /* Add margin to the icons to create space */
   .input-container i {
     margin-left: 8em;
+  }
+  
+  /* Add styling for the error messages */
+  .input-container .error {
+    position: absolute;
+    top: 100%; /* Position below the input field */
+    left: 10px;
+    color: #ff0000;
+    font-size: 12px;
   }
   
 
