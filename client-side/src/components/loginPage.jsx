@@ -9,8 +9,10 @@ const LoginPage = () => {
         <br />
         <br />
         <br />
-        <h2>Welcome to Our Website!</h2>
-        <p>Content will go here.</p>
+        <div className="info-content">
+        <h2 className="content Title">Welcome aboard my zozo!</h2>
+        <p className="content Para">Hero na ban sheeday </p>
+        </div>
       </div>
       <div className="sign-in-pane">
         <h2>Sign In</h2>
@@ -35,6 +37,16 @@ const LoginPage = () => {
         </form>
         <div className="forgot-password">
           <Link to="/forgot-password">Forgot Password?</Link>
+        </div>
+        <div className="or-divider">
+          <div className="bar"></div>
+          <span>OR</span>
+          <div className="bar"></div>
+        </div>
+        <div className="social-login">
+          <button className="googleBtn">
+            <i className="fab fa-google"></i> Sign In with Google
+          </button>
         </div>
       </div>
     </div>
