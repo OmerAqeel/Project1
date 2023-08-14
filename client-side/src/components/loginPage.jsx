@@ -19,14 +19,14 @@ const LoginPage = () => {
   const validateForm = () => {
     let isValid = true;
 
-    if (username.trim() === "") {
+    if (username === "") {
       setUsernameError("Username is required");
       isValid = false;
     } else {
       setUsernameError("");
     }
 
-    if (password.trim() === "") {
+    if (password === "") {
       setPasswordError("Password is required");
       isValid = false;
     } else {
@@ -71,7 +71,7 @@ const LoginPage = () => {
               onChange={handleUsernameChange}
               required
             />
-            <p className="error">{usernameError}</p>
+            {usernameError && <p className="error">Username error {usernameError}</p>}
           </div>
           <br />
           <div className="input-container"> 
@@ -86,7 +86,7 @@ const LoginPage = () => {
               onChange={handlePasswordChange}
               required
             />
-            <p className="error">{passwordError}</p>
+            {passwordError && <p className="error">{passwordError}</p>}
           </div>
           <br />
           <div>
