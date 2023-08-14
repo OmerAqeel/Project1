@@ -4,11 +4,11 @@
   }
   
   .subdiv1 {
-    padding-left: 35em;
+    padding-left: 10em;
     width: 50%;
   }
   .subdiv2 {
-    padding-right: 35em;
+    padding-right: 10em;
     width: 50%;
   }
 
@@ -23,6 +23,7 @@
       background-color: #ff7200;
       padding: 7px;
       border-radius: 5px;
+      cursor: pointer;
   
   }
   .error {
@@ -30,9 +31,67 @@
   }
   
   .description {
-    position: absolute;
-    top: 10em;
     
+    width: 25.5%;
+    margin: auto;
+    text-align: left;
+    padding: 10px;
+    
+    
+    /* position: absolute;
+    left: 5em; */
+    
+  }
+
+  .upload-pane {
+    flex: 1;
+    margin-left: 20px;
+    max-width: 50%;
+    /* padding-top: 12%; */
+  }
+
+
+  .info-pane {
+    flex: 1;
+    margin-left: -2em;
+    margin-top: -1.24em;
+    margin-bottom: -6.9em;
+    padding-top: 12%;
+  
+    /* Define the background animation */
+    background: linear-gradient(135deg, #ff7200, #ffd700);
+    background-size: 50% 10%; /* This is essential for the animation */
+    animation: gradientAnimation 2s linear infinite;
+  }
+
+  .upload-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+    height: 100%; /* Set height to 100vh to fill the viewport */
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .chosen-categories {
+    margin-bottom: 10px;
   }
 
   @media screen and (max-width: 600px) {
