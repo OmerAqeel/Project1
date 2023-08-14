@@ -1,183 +1,139 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./sellBooksStyle.css";
+
+axios.defaults.baseURL = "http://localhost:3000/";
 
 const SellBooks = () => {
   const [bookTitle, setBookTitle] = useState("");
   const [description, setDescription] = useState("");
   const [bookPrice, setBookPrice] = useState("");
   const [goodreadsLink, setGoodreadsLink] = useState("");
-  const [country, setCountry] = useState("Austria");
-  const [city, setCity] = useState("Fucking");
+  // const [country, setCountry] = useState("Austria");
+  // const [city, setCity] = useState("cities");
   const [formErrors, setFormErrors] = useState({});
-  const [imageFile, setImageFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
+  // const [imageFile, setImageFile] = useState(null);
+  // const [previewUrl, setPreviewUrl] = useState(null);
 
-  const [selectedNonFictionCategories, setSelectedNonFictionCategories] = useState([]);
-  const [selectedFictionCategories, setSelectedFictionCategories] = useState([]);
+  // const [selectedNonFictionCategories, setSelectedNonFictionCategories] = useState([]);
+  // const [selectedFictionCategories, setSelectedFictionCategories] = useState([]);
+  // const [chosenCategories, setChosenCategories] = useState([]);
 
-  const nonFictionCategories = [
-    "Academia", "(Auto) Biography", "Language", "Literature", "Medicine",
-    "Poetry", "Religion", "Sports", "Tech", "Other Non-Fiction"
-  ];
+  // const nonFictionCategories = [
+  //   "Academia", "(Auto) Biography", "Language", "Literature", "Medicine",
+  //   "Poetry", "Religion", "Sports", "Tech", "Other Non-Fiction"
+  // ];
 
-  const fictionCategories = [
-    "Fantasy", "Horror", "Literary Fiction", "Mystery", "Romance", "Sci-Fi", "Other Fiction"
-  ];
+  // const fictionCategories = [
+  //   "Fantasy", "Horror", "Literary Fiction", "Mystery", "Romance", "Sci-Fi", "Other Fiction"
+  // ];
 
-  const handleNonFictionChange = (event) => {
-    const category = event.target.value;
-    setSelectedNonFictionCategories((prevCategories) => {
-      if (event.target.checked) {
-        return [...prevCategories, category];
-      } else {
-        return prevCategories.filter((c) => c !== category);
-      }
-    });
+  // const handleCategoryChange = (event) => {
+  //   const value = event.target.value;
+  //   if (event.target.checked) {
+  //     setChosenCategories((prevCategories) => [...prevCategories, value]);
+  //   } else {
+  //     setChosenCategories((prevCategories) =>
+  //       prevCategories.filter((category) => category !== value)
+  //     );
+  //   }
+  // };
+
+  // const handleImageChange = (event) => {
+  //   const file = event.target.files[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setImageFile(file);
+  //       setPreviewUrl(reader.result);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+
+    switch (name) {
+      case "bookTitle":
+        setBookTitle(value);
+        break;
+      case "description":
+        setDescription(value);
+        break;
+      case "bookPrice":
+        setBookPrice(value);
+        break;
+      case "goodreadsLink":
+        setGoodreadsLink(value);
+        break;
+      default:
+        break;
+    }
   };
 
-  const handleFictionChange = (event) => {
-    const category = event.target.value;
-    setSelectedFictionCategories((prevCategories) => {
-      if (event.target.checked) {
-        return [...prevCategories, category];
-      } else {
-        return prevCategories.filter((c) => c !== category);
-      }
-    });
+  // const [formData,setFormData] = useState({
+  //   bookTitle: "",
+  //         description:"",
+  //         bookPrice: "",
+  //         goodreadsLink: "",
 
-    const handleImageChange = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setImageFile(file);
-          setPreviewUrl(reader.result);
+  // })
+ 
+  const handleSubmit = async(event) => {
+    event.preventDefault();
+    const errors = {};
+    if (!bookTitle) {
+      errors.bookTitle = "Book title is required";
+    }
+
+    if (!description) {
+      errors.description = "Description is required";
+    }
+
+    if (!bookPrice) {
+      errors.bookPrice = "Book price is required";
+    } else if (!/^\d+(\.\d{1,2})?$/.test(bookPrice)) {
+      errors.bookPrice = "Invalid book price format. Example: 12.34";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+    } else {
+      try {
+        const formData = {
+          bookTitle,
+          description,
+          bookPrice,
+          goodreadsLink,
+          // country,
+          // city,
+          // selectedNonFictionCategories,
+          // selectedFictionCategories,
         };
-        reader.readAsDataURL(file);
-      }
-    };
 
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setFormErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+        // Make a POST request to the /create endpoint
+        console.log('very close')
+        console.log(formData);
 
-      switch (name) {
-        case "bookTitle":
-          setBookTitle(value);
-          break;
-        case "description":
-          setDescription(value);
-          break;
-        case "bookPrice":
-          setBookPrice(value);
-          break;
-        case "goodreadsLink":
-          setGoodreadsLink(value);
-          break;
-        case "country":
-          setCountry(value);
-          break;
-        case "city":
-          setCity(value);
-          break;
-        default:
-          break;
-      }
-    };
-    // const CategoryDropdown = () => {
-    //   const [chosenCategories, setChosenCategories] = useState([]);
-    //   const categories = [
-    //     { value: 'Academia', label: 'Academia' },
-    //     { value: 'Biography', label: '(Auto) Biography' },
-    //     { value: 'Language', label: 'Language' },
-    //     { value: 'Literature', label: 'Literature' },
-    //     { value: 'Medicine', label: 'Medicine' },
-    //     { value: 'Poetry', label: 'Poetry' },
-    //     { value: 'Religion', label: 'Religion' },
-    //     { value: 'Sports', label: 'Sports' },
-    //     { value: 'Tech', label: 'Tech' },
-    //     { value: 'Other Non-Fiction', label: 'Other Non-Fiction' },
-    //     { value: 'Fantasy', label: 'Fantasy' },
-    //     { value: 'Horror', label: 'Horror' },
-    //     { value: 'Literary Fiction', label: 'Literary Fiction' },
-    //     { value: 'Mystery', label: 'Mystery' },
-    //     { value: 'Romance', label: 'Romance' },
-    //     { value: 'Sci-Fi', label: 'Sci-Fi' },
-    //     { value: 'Other Fiction', label: 'Other Fiction' },
+        const response = await axios.post("/sellBooks", formData);
 
-    //     // Add more categories here
-    //   ];
-
-    //   const handleCategoryChange = (event) => {
-    //     const value = event.target.value;
-    //     if (event.target.checked) {
-    //       setChosenCategories((prevCategories) => [...prevCategories, value]);
-    //     } else {
-    //       setChosenCategories((prevCategories) =>
-    //         prevCategories.filter((category) => category !== value)
-    //       );
-    //     }
-    // };
-    // const checkboxes = document.querySelectorAll('input[name="category"]');
-    // const chosenCategoriesSpan = document.getElementById('chosenCategories');
-
-    // checkboxes.forEach((checkbox) => {
-    //   checkbox.addEventListener('change', updateChosenCategories);
-    // });
-
-    // function updateChosenCategories() {
-    //   const chosenCategories = Array.from(checkboxes)
-    //     .filter((checkbox) => checkbox.checked)
-    //     .map((checkbox) => checkbox.value);
-
-    //   chosenCategoriesSpan.textContent = chosenCategories.join(', ');
-    // }
-
-    // updateChosenCategories();
-    // const checkboxes = document.querySelectorAll('input[name="category"]');
-    // const chosenCategoriesSpan = document.getElementById('chosenCategories');
-
-    // checkboxes.forEach((checkbox) => {
-    //   checkbox.addEventListener('change', function () {
-    //     const chosenCategories = Array.from(checkboxes)
-    //       .filter((checkbox) => checkbox.checked)
-    //       .map((checkbox) => checkbox.value);
-
-    //     chosenCategoriesSpan.textContent = chosenCategories.join(', ');
-    //   });
-    // });
-
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      const errors = {};
-
-      if (!bookTitle) {
-        errors.bookTitle = "Book title is required";
-      }
-
-      if (!description) {
-        errors.description = "Description is required";
-      }
-
-      if (!bookPrice) {
-        errors.bookPrice = "Book price is required";
-      } else if (!/^\d+(\.\d{1,2})?$/.test(bookPrice)) {
-        errors.bookPrice = "Invalid book price format. Example: 12.34";
-      }
-
-      if (Object.keys(errors).length > 0) {
-        setFormErrors(errors);
-      } else {
-        // Form is valid, you can perform further actions here
-        // For example, you could make an API call to submit the data to the server
+        // Handle the response as needed (e.g., show success message)
         console.log("Form submitted successfully!");
-      }
-    };
+        console.log(response);
 
-    return (
-      <div className="upload-page">
-        <div className="info-pane">
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        // Handle error (e.g., show error message)
+      }
+    }
+  };
+
+  return (
+    <div className="upload-page">
+      <div className="info-pane">
           <br />
           <br />
           <br />
@@ -186,24 +142,23 @@ const SellBooks = () => {
             <p className="content Para">Hero na ban sheeday </p>
           </div>
         </div>
-        <div className="upload-pane">
-          <h4 className="sell-books-title">Post Your Ad</h4>
-          <div className="sell-books-form">
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="book-title">Book title: </label>
-              <input
-                type="text"
-                id="book-title"
-                name="bookTitle"
-                value={bookTitle}
-                onChange={handleInputChange}
-              />
-              <br />
-              {formErrors.bookTitle && <span className="error">{formErrors.bookTitle}</span>}
+      <div className="upload-pane">
+        <h4 className="sell-books-title">Post Your Ad</h4>
+        <div className="sell-books-form">
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="book-title">Book title:</label>
+            <input
+              type="text"
+              id="book-title"
+              name="bookTitle"
+              value={bookTitle}
+              onChange={handleInputChange}
+            />
+            <br />
+            {formErrors.bookTitle && <span className="error">{formErrors.bookTitle}</span>}
+            
+            <div className="description">
 
-              <br />
-              <br />
-              <div className="description">
                 <label htmlFor="description">Description: </label> <br /> </div>
 
               <textarea
@@ -214,14 +169,13 @@ const SellBooks = () => {
                 placeholder="Enter Description Here..."
                 value={description}
                 onChange={handleInputChange}
-
               ></textarea>
               <br />
               {formErrors.description && <span className="error">{formErrors.description}</span>}
 
               <br />
               <br />
-              <label htmlFor="book-image">Book Image: </label> <br /> <br />
+              {/* <label htmlFor="book-image">Book Image: </label> <br /> <br />
               <div>
                 <input
                   type="file"
@@ -240,8 +194,7 @@ const SellBooks = () => {
                     <img src={previewUrl} alt="Book Preview" style={{ maxWidth: "100%" }} />
                   )}
                 </div>
-              </div>
-
+              </div> */}
 
 
 
@@ -280,18 +233,18 @@ const SellBooks = () => {
                   onChange={handleInputChange}
                 />
               </p>
-
-              <div className="book-categories">
-                <h5>Book Category:</h5>
-                <div class="chosen-categories">
-                  Chosen categories: <span id="chosenCategories"></span>
-                </div>
-                <div className="maindiv1">
-                  <div className="subdiv1">
-                    <div className="dropdown">
-                      <button className="dropbtn">Non-Fiction Categories</button>
+            
+            {/* <div className="book-categories">
+              <h5>Book Category:</h5>
+              <div className="chosen-categories">
+                Chosen categories: {chosenCategories.join(", ")}
+              </div>
+              <div className="maindiv1">
+                <div className="subdiv1">
+                  <div className="dropdown">
+                  <button className="dropbtn">Fiction Categories</button>
                       <div className="dropdown-content">
-                        {nonFictionCategories.map((category) => (
+                        {fictionCategories.map((category) => (
                           <div key={category}>
                             <input
                               type="checkbox"
@@ -303,12 +256,11 @@ const SellBooks = () => {
                             <label htmlFor={category}>{category}</label><br />
                           </div>
                         ))}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="subdiv2">
-                    <div className="dropdown">
-                      <button className="dropbtn">Fiction Categories</button>
+                      </div>                  </div>
+                </div>
+                <div className="subdiv2">
+                  <div className="dropdown">
+                  <button className="dropbtn">Fiction Categories</button>
                       <div className="dropdown-content">
                         {fictionCategories.map((category) => (
                           <div key={category}>
@@ -324,8 +276,10 @@ const SellBooks = () => {
                         ))}
                       </div>
                     </div>
-                  </div>
-                  <div>
+                  </div> 
+
+
+              <div>
                     <h3>Selected Non-Fiction Categories:</h3>
                     {selectedNonFictionCategories.join(', ')}
                   </div>
@@ -333,7 +287,7 @@ const SellBooks = () => {
                     <h3>Selected Fiction Categories:</h3>
                     {selectedFictionCategories.join(', ')}
                   </div>
-                  {/* <div className='maindiv1'>
+                   <div className='maindiv1'> 
                   <div className='subdiv1'>
                     <div class="dropdown">
                       <button class="dropbtn">Non-Fiction Categories</button>
@@ -363,7 +317,7 @@ const SellBooks = () => {
                     </div>
                   </div>
 
-
+                  {/* onChange={handleCategoryChange} */}
                   <div className='subdiv2'>
                     <div class="dropdown">
                       <button class="dropbtn">Fiction Categories</button>
@@ -382,24 +336,16 @@ const SellBooks = () => {
                         <label > Sci-Fi</label><br />
                         <input type="checkbox" id="Other Fiction" name="Other Fiction" value="Other Fiction" />
                         <label > Other</label><br />
-                      </div>
-                    </div>
                   </div>
-
-                  {/* onChange={handleCategoryChange} */}
-
-
-                </div> 
-
-                <br />
-                <br />
-                <br />
-                <input className="button" type="submit" value="Submit" />
+                </div>
               </div>
-              <br />
-              <br />
-            </form>
-          </div>
+            </div>
+            
+            </div>
+            </div> */}
+            <input className="button" type="submit" value="Submit" />
+
+          </form>
         </div>
       </div>
 
