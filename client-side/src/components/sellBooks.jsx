@@ -82,7 +82,7 @@ const SellBooks = () => {
 
   return (
     <div>
-      <h4 className="sell-books-title">SellBooks</h4>
+      <h4 className="sell-books-title">Post Your Ad</h4>
       <div className="sell-books-form">
         <form onSubmit={handleSubmit}>
           <label htmlFor="book-title">Book title: </label>
@@ -93,79 +93,81 @@ const SellBooks = () => {
             value={bookTitle}
             onChange={handleInputChange}
           />
+          <br />
           {formErrors.bookTitle && <span className="error">{formErrors.bookTitle}</span>}
 
           <br />
           <br />
-          <label htmlFor="description">Description: </label>
+          <div className="description">
+            <label htmlFor="description">Description: </label> <br /> </div>
+
           <textarea
             id="description"
             name="description"
-            rows="6"
+            rows="7"
             cols="50"
             placeholder="Enter Description Here..."
             value={description}
             onChange={handleInputChange}
+            style={{}}
           ></textarea>
+          <br />
           {formErrors.description && <span className="error">{formErrors.description}</span>}
 
           <br />
           <br />
-          <label htmlFor="book-image">Book Image:</label>
-      <input
+          <label htmlFor="book-image">Book Image: </label> <br /> <br />
+          <div>
+            <input
+              type="file"
+              id="book-image"
+              onChange={handleImageChange}
+            />
+            <div style={{ border: "1px solid #ccc", padding: "10px", marginTop: "10px", maxWidth: "1000px", marginRight: "30em", marginLeft: "30em" }}>
+              {imageFile && (
+                <img src={previewUrl} alt="Book Preview" style={{ maxWidth: "100%" }} />
+              )}
+            </div>
+          </div>
+
+
+
+
+          {/* <input
         type="file"
         id="book-image"
         onChange={handleImageChange}
       />
       {imageFile && <img src={previewUrl} alt="Book Preview" style={{ maxWidth: "200px" }} />}
-          {/* <input type="submit" value="Upload Chosen File" /> */}
+          <input type="submit" value="Upload Chosen File" /> */}
 
           <br />
           <br />
-          <label htmlFor="book-price">Book price: </label>
-          <input
-            type="text"
-            id="book-price"
-            name="bookPrice"
-            placeholder="$00.00"
-            value={bookPrice}
-            onChange={handleInputChange}
-          />
-          {formErrors.bookPrice && <span className="error">{formErrors.bookPrice}</span>}
-
-          <br />
-          <br />
-          <label htmlFor="goodreads-link">Goodreads link: </label>
-          <input
-            type="text"
-            id="goodreads-link"
-            name="goodreadsLink"
-            placeholder="https://www.goodreads.com/"
-            value={goodreadsLink}
-            onChange={handleInputChange}
-          />
-
-          <div>
-            <h5>Location</h5>
-            <label htmlFor="country">Country:</label>
+          <p>
+            <label htmlFor="book-price">Book price: </label>
             <input
               type="text"
-              id="country"
-              name="country"
-              placeholder="Austria"
-              value={country}
+              id="book-price"
+              name="bookPrice"
+              placeholder="PKR 00.00"
+              value={bookPrice}
               onChange={handleInputChange}
             />
-            <label htmlFor="city">City:</label>
+            <br />
+            {formErrors.bookPrice && <span className="error">{formErrors.bookPrice}</span>}
+          </p>
+
+          <p>
+            <label htmlFor="goodreads-link">Goodreads link: </label>
             <input
               type="text"
-              id="city"
-              name="city"
-              placeholder="Fucking"
-              value={city}
+              id="goodreads-link"
+              name="goodreadsLink"
+              placeholder="https://www.goodreads.com/"
+              value={goodreadsLink}
               onChange={handleInputChange}
             />
-          </div>
+          </p>
 
           <div className="book-categories">
             <h5>Book Category:</h5>
@@ -216,8 +218,11 @@ const SellBooks = () => {
 
             </div>
 
-            <input type="submit" value="Submit" />
-          </div></form>
+            <input className="button" type="submit" value="Submit" />
+          </div>
+          <br />
+          <br />
+        </form>
       </div>
     </div>
   );

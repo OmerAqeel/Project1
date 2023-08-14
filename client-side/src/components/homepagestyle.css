@@ -1,235 +1,95 @@
-.image-container {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    height: 477px;
-  }
-  
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0px;
-  }
-  
-  .box {
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
-    width: 150px;
-    height: 25px;
-    background-color: #ff7200;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .box:hover {
-    background-color:#ff2f00;
-    transition: background-color 0.5s ease;
-  }
-  .box-link {
-    text-decoration: none;
-  }
-  .explore-more {
-    font-size: 20px;
-    font-weight: bold;
-    transform: translateX(-11%);
-    color: #ffffff;
-    text-decoration: none;
-    white-space: nowrap
-  }
-  .text-on-image1 {
-    position: absolute;
-    top: -500%;
-    left: 0px;
-    transform: translateY(-50%);
-  }
-  .image1-top-text {
-    font-size: 50px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: justify;
-    line-height: 1.1;
-    max-height: 230px;
-    overflow: hidden;
-  }
-  .text-on-image1 {
-    position: absolute;
-    bottom: 50px;
-    left: 0px;
-    width: 500px; /* Increase the width to make space for the expanded text */
-    height: 40px; /* Increase the height to make space for the expanded text */
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* TESTIMONIAL KA PART HAI BHIDUU */
-  .testimonial-text{
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: left;
-    transform: translateY(-5%);
-    padding-left:50px;
-    font-weight: bold;
-    color: #ff7200;
-  }
-  /* IDHAR BHAI DALAY GA 2ND SECTION KA CSS */
-  .carousel-container {
-    position: relative;
-    object-fit: cover;
-    overflow: scroll;
-  }
-  
-  .carousel {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .box2 {
-    flex: 0 0 calc(100% / 3); 
-    min-width: 100px; 
-    height: 300px;
-    background-color: #ff7200;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    font-size: 20px;
-    font-weight: bold;
-    text-align: justify;
-    color: #ffffff;
-    word-wrap: break-word;
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .testimonial {
-    flex: 0 0 calc(100% / 3);
-    min-width: 200px;
-    height: 400px;
-    background-color: #ff7200;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px #ff7200;
-    margin: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-  }
-  
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-  
-  .quote {
-    padding: 20px;
-  }
-  
-  .quote-text {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .quote-author {
-    font-size: 16px;
-    font-style: italic;
-  }
-  
-  /* top-categories-text */
-  .top-cat-text {
-    font-size: 40px;
-    font-weight: bolder;
-    text-align: left;
-    font-weight: bold;
-    color: #ff7200;
-    padding-left: 20px;
-    transform: translateX(2%) translateY(-40px);
-    white-space: nowrap;
-  }
-  .explore-more-category{
-    position: relative;
-    top: -100px;
-    left: 1250px;
-    width: 10%;
-    border-radius: 9px;
-    background-color: none;
-    border-width: 2px;
-    border-style:solid;
-    border-color: #ff7200;
-    font-size: 20px;
-    color: #ff7200;
-    text-align: center;
-    padding: 8px 15px;
-    font-weight: bold;
-    margin: 10px;
-    white-space: nowrap;
-  }
-  .explore-more-category:hover {
-    background-color: #ff7200;
-    color: white;
-    transition: 0.5s;
-  }
-  .explore-more-category:link {
-    text-decoration: none;
-  }
-  .explore-more-category:active {
-    filter: invert(0%);
-  }
-
-.book-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    flex-wrap: wrap;
-    transform: translateY(-5%);
-    margin: 0 auto;
-    height: auto;
+body {
+  margin: 0;
+  padding: 0;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
+  overflow: hidden;
 }
 
-.book-image {
-    flex: 0 0 calc(10% - 20px);
-    max-width: 60%;
-    max-height: 100%;
-    margin: 10px;
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/Users/mac/Documents/GitHub/Project1/client-side/public/images/First Image1.jpg');
+  background-size: cover;
+  background-position: center;
 }
-.book-label {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
-.category-text {
-  width: 60%;
-  border-radius: 10px;
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  text-align: left;
+  color: white;
+  padding-left: 5rem;
+}
+
+.title {
+  font-size: 80px;
+  margin-bottom: 2px;
+  text-align: left;
+  max-width: 80%;
+  line-height: 1.2;
+}
+
+
+.subtitle {
+  font-size: 25px;
+  padding-bottom: 200px;
+  font-weight: lighter;
+  margin-bottom: 2rem;
+}
+
+.explore-boxes {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -50px;
+  
+}
+
+.explore-box {
+  flex-grow: 1;
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-color: #ff7200;
+  background-color: #ff730046;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.explore-box:first-child {
   background-color: #ff7200;
-  font-size: 30px;
-  color: #ffffff;
-  text-align: center;
-  padding: 8px 0;
-  font-weight: bold;
-  margin: 10px;
+}
+
+.explore-box:nth-child(2):hover {
+  background-color: #ff7b00; 
+  color: rgb(255, 255, 255); 
+}
+
+.explore-box a {
+  text-decoration: none;
+  color: inherit; 
+}
+
+.explore-box:hover {
+  background-color: #ff73003a; 
+  color: rgb(255, 255, 255); 
 }
