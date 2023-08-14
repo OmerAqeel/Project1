@@ -158,6 +158,7 @@ const SellBooks = () => {
             {formErrors.bookTitle && <span className="error">{formErrors.bookTitle}</span>}
             
             <div className="description">
+
                 <label htmlFor="description">Description: </label> <br /> </div>
 
               <textarea
@@ -168,7 +169,6 @@ const SellBooks = () => {
                 placeholder="Enter Description Here..."
                 value={description}
                 onChange={handleInputChange}
-
               ></textarea>
               <br />
               {formErrors.description && <span className="error">{formErrors.description}</span>}
@@ -195,7 +195,6 @@ const SellBooks = () => {
                   )}
                 </div>
               </div> */}
-
 
 
 
@@ -318,7 +317,7 @@ const SellBooks = () => {
                     </div>
                   </div>
 
-
+                  {/* onChange={handleCategoryChange} */}
                   <div className='subdiv2'>
                     <div class="dropdown">
                       <button class="dropbtn">Fiction Categories</button>
@@ -349,8 +348,8 @@ const SellBooks = () => {
           </form>
         </div>
       </div>
-    </div>
-  );
-};
 
+    );
+  };
+};
 export default SellBooks;
