@@ -1,114 +1,59 @@
-import React, { useState } from "react";
+import React from 'react';
+import LoginPage from './loginPage';
 import { Link } from "react-router-dom";
+import * as Components from "./Components";
 import './loginStyle.css';
 
-const LoginPage = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
-  const handleUsernameChange = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const validateForm = () => {
-    let isValid = true;
-
-    if (username.trim() === "") {
-      setUsernameError("Username is required");
-      isValid = false;
-    } else {
-      setUsernameError("");
-    }
-
-    if (password.trim() === "") {
-      setPasswordError("Password is required");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
-
-    return isValid;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    if (validateForm()) {
-      // Form is valid, you can proceed with submission or further processing
-      console.log("Form submitted successfully");
-    }
-  };
-
+function App() {
+  const [signIn, toggle] = React.useState(true);
   return (
-    <div className="sign-in-page">
-      <div className="info-pane">
-        <br />
-        <br />
-        <br />
-        <div className="info-content">
-          <h2 className="content Title">Welcome aboard my zozo!</h2>
-          <p className="content Para">Hero na ban sheeday </p>
-        </div>
-      </div>
-      <div className="sign-in-pane">
-        <h2>Sign In</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="input-container">
-            <label htmlFor="username">
-              <i className="fas fa-envelope"></i>
-            </label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
-              onChange={handleUsernameChange}
-              required
-            />
-            <p className="error">{usernameError}</p>
-          </div>
-          <br />
-          <div className="input-container"> 
-            <label htmlFor="password">
-              <i className="fas fa-lock"></i>
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={handlePasswordChange}
-              required
-            />
-            <p className="error">{passwordError}</p>
-          </div>
-          <br />
-          <div>
-            <button type="submit" className="signInBtn">Sign In</button>
-          </div>
-        </form>
-        <div className="forgot-password">
-          <Link to="/forgot-password">Forgot Password?</Link>
-        </div>
-        <div className="or-divider">
-          <div className="bar"></div>
-          <span>OR</span>
-          <div className="bar"></div>
-        </div>
-        <div className="social-login">
-          <button className="googleBtn">
-            <i className="fab fa-google"></i> Sign In with Google
-          </button>
-        </div>
+    <div className="body">
+      <div className="Container">
+        <Components.Container>
+          <Components.SignUpContainer signingIn={signIn}>
+        <Components.Form>
+          <Components.Title>Create Account</Components.Title>
+          <Components.Input type="text" placeholder="Name" />
+          <Components.Input type="email" placeholder="Email" />
+          <Components.Input type="password" placeholder="Password" />
+          <Components.Button>Sign Up</Components.Button>
+        </Components.Form>
+        </Components.SignUpContainer>
+          <Components.SignInContainer signingIn={signIn}>
+        <Components.Form>
+          <Components.Title>Sign in</Components.Title>
+          <Components.Input type="email" placeholder="Email" />
+          <Components.Input type="password" placeholder="Password" />
+          <Components.Anchor href="#">Forgot your password?</Components.Anchor>
+          <Components.Button>Sign In</Components.Button>
+        </Components.Form>
+        </Components.SignInContainer>
+          <Components.OverlayContainer signingIn={signIn}>
+        <Components.Overlay signingIn={signIn}>
+          <Components.LeftOverlayPanel signingIn={signIn}>
+            <Components.Title>Welcome Back!</Components.Title>
+            <Components.Paragraph>
+              To keep connected with us please login with your personal info
+            </Components.Paragraph>
+            <Components.GhostButton onClick={() => toggle(true)}>
+              Sign In
+            </Components.GhostButton>
+          </Components.LeftOverlayPanel>
+          <Components.RightOverlayPanel signingIn={signIn}>
+            <Components.Title>Hello, Friend!</Components.Title>
+            <Components.Paragraph>
+              Enter your personal details and start journey with us
+            </Components.Paragraph>
+            <Components.GhostButton onClick={() => toggle(false)}>
+              Sign Up
+            </Components.GhostButton>
+          </Components.RightOverlayPanel>
+        </Components.Overlay>
+        </Components.OverlayContainer>
+        </Components.Container>
       </div>
     </div>
   );
-};
-
-export default LoginPage;
+}
+  
+  export default App;
