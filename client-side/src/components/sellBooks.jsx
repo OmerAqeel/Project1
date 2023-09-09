@@ -45,6 +45,7 @@ const SellBooks = () => {
         return prevCategories.filter((c) => c !== category);
       }
     });
+  }
 
     const handleImageChange = (event) => {
       const file = event.target.files[0];
@@ -405,5 +406,5 @@ const SellBooks = () => {
 
     );
   };
-};
+
 export default SellBooks;
