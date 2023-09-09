@@ -25,33 +25,158 @@ const SellBooks = () => {
     }
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
 
-    switch (name) {
-      case "bookTitle":
-        setBookTitle(value);
-        break;
-      case "description":
-        setDescription(value);
-        break;
-      case "bookPrice":
-        setBookPrice(value);
-        break;
-      case "goodreadsLink":
-        setGoodreadsLink(value);
-        break;
-      case "country":
-        setCountry(value);
-        break;
-      case "city":
-        setCity(value);
-        break;
-      default:
-        break;
-    }
-  };
+  const handleFictionChange = (event) => {
+    const category = event.target.value;
+    setSelectedFictionCategories((prevCategories) => {
+      if (event.target.checked) {
+        return [...prevCategories, category];
+      } else {
+        return prevCategories.filter((c) => c !== category);
+      }
+    });
+  }
+
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          setImageFile(file);
+          setPreviewUrl(reader.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+
+    const handleInputChange = (event) => {
+      const { name, value } = event.target;
+      setFormErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+
+      switch (name) {
+        case "bookTitle":
+          setBookTitle(value);
+          break;
+        case "description":
+          setDescription(value);
+          break;
+        case "bookPrice":
+          setBookPrice(value);
+          break;
+        case "goodreadsLink":
+          setGoodreadsLink(value);
+          break;
+        case "country":
+          setCountry(value);
+          break;
+        case "city":
+          setCity(value);
+          break;
+        default:
+          break;
+      }
+    };
+    // const CategoryDropdown = () => {
+    //   const [chosenCategories, setChosenCategories] = useState([]);
+    //   const categories = [
+    //     { value: 'Academia', label: 'Academia' },
+    //     { value: 'Biography', label: '(Auto) Biography' },
+    //     { value: 'Language', label: 'Language' },
+    //     { value: 'Literature', label: 'Literature' },
+    //     { value: 'Medicine', label: 'Medicine' },
+    //     { value: 'Poetry', label: 'Poetry' },
+    //     { value: 'Religion', label: 'Religion' },
+    //     { value: 'Sports', label: 'Sports' },
+    //     { value: 'Tech', label: 'Tech' },
+    //     { value: 'Other Non-Fiction', label: 'Other Non-Fiction' },
+    //     { value: 'Fantasy', label: 'Fantasy' },
+    //     { value: 'Horror', label: 'Horror' },
+    //     { value: 'Literary Fiction', label: 'Literary Fiction' },
+    //     { value: 'Mystery', label: 'Mystery' },
+    //     { value: 'Romance', label: 'Romance' },
+    //     { value: 'Sci-Fi', label: 'Sci-Fi' },
+    //     { value: 'Other Fiction', label: 'Other Fiction' },
+
+    //     // Add more categories here
+    //   ];
+
+    //   const handleCategoryChange = (event) => {
+    //     const value = event.target.value;
+    //     if (event.target.checked) {
+    //       setChosenCategories((prevCategories) => [...prevCategories, value]);
+    //     } else {
+    //       setChosenCategories((prevCategories) =>
+    //         prevCategories.filter((category) => category !== value)
+    //       );
+    //     }
+    // };
+    // const checkboxes = document.querySelectorAll('input[name="category"]');
+    // const chosenCategoriesSpan = document.getElementById('chosenCategories');
+
+    // checkboxes.forEach((checkbox) => {
+    //   checkbox.addEventListener('change', updateChosenCategories);
+    // });
+
+    // function updateChosenCategories() {
+    //   const chosenCategories = Array.from(checkboxes)
+    //     .filter((checkbox) => checkbox.checked)
+    //     .map((checkbox) => checkbox.value);
+
+    //   chosenCategoriesSpan.textContent = chosenCategories.join(', ');
+    // }
+
+    // updateChosenCategories();
+    // const checkboxes = document.querySelectorAll('input[name="category"]');
+    // const chosenCategoriesSpan = document.getElementById('chosenCategories');
+
+    // checkboxes.forEach((checkbox) => {
+    //   checkbox.addEventListener('change', function () {
+    //     const chosenCategories = Array.from(checkboxes)
+    //       .filter((checkbox) => checkbox.checked)
+    //       .map((checkbox) => checkbox.value);
+
+    //     chosenCategoriesSpan.textContent = chosenCategories.join(', ');
+    //   });
+    // });
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const errors = {};
+
+      if (!bookTitle) {
+        errors.bookTitle = "Book title is required";
+      }
+
+      if (!description) {
+        errors.description = "Description is required";
+      }
+
+
+
+//     switch (name) {
+//       case "bookTitle":
+//         setBookTitle(value);
+//         break;
+//       case "description":
+//         setDescription(value);
+//         break;
+//       case "bookPrice":
+//         setBookPrice(value);
+//         break;
+//       case "goodreadsLink":
+//         setGoodreadsLink(value);
+//         break;
+//       case "country":
+//         setCountry(value);
+//         break;
+//       case "city":
+//         setCity(value);
+//         break;
+//       default:
+//         break;
+//     }
+//   };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -224,8 +349,10 @@ const SellBooks = () => {
           <br />
         </form>
       </div>
-    </div>
-  );
-};
+
+
+    );
+  };
+
 
 export default SellBooks;
